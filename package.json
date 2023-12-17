@@ -15,7 +15,8 @@
   "scripts": {
     "start": "node build/main.js",
     "build": "tsc -p tsconfig.json",
-    "grammar": "cd src/antlr && rm -rf ./Language && antlr4ts -visitor -o Language Language.g4"
+    "grammar-Language": "cd src/antlr && rm -rf ./Language && antlr4ts -visitor -o Language Language.g4",
+    "grammar-SimpleLISP": "cd src/antlr && rm -rf ./SimpleLISP && antlr4ts -visitor -o SimpleLISP SimpleLISP.g4"
   },
   "author": "Jakub Synowiec <jsynowiec@users.noreply.github.com>",
   "license": "Apache-2.0",

@@ -1,6 +1,6 @@
 import { CharStreams, CommonTokenStream } from 'antlr4ts';
-import { LanguageLexer } from './antlr/gen/LanguageLexer';
-import { LanguageParser } from './antlr/gen/LanguageParser';
+import { LanguageLexer } from './antlr/Language/LanguageLexer';
+import { LanguageParser } from './antlr/Language/LanguageParser';
 
 async function main() {
     // Create the lexer and parser
