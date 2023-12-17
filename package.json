@@ -15,7 +15,7 @@
   "scripts": {
     "start": "node build/main.js",
     "build": "tsc -p tsconfig.json",
-    "grammar": "cd src/antlr && rm -rf ./gen && antlr4ts -visitor -o gen Language.g4"
+    "grammar": "cd src/antlr && rm -rf ./Language && antlr4ts -visitor -o Language Language.g4"
   },
   "author": "Jakub Synowiec <jsynowiec@users.noreply.github.com>",
   "license": "Apache-2.0",
