@@ -13,9 +13,7 @@
     "typescript": "~5.1"
   },
   "scripts": {
-    "start": "node build/main.js",
-    "build": "tsc -p tsconfig.json",
-    "grammar": "cd src/antlr && rm -rf ./Language && antlr4ts -visitor -o Language Language.g4",
+    "format": "tsc -p tsconfig.json || true && node build/format.js",
     "lisp": "cd src/antlr && rm -rf ./SimpleLISP && antlr4ts -visitor -o SimpleLISP SimpleLISP.g4 && cd ../.. && tsc -p tsconfig.json || true && node build/lisp.js"
   },
   "author": "Jakub Synowiec <jsynowiec@users.noreply.github.com>",

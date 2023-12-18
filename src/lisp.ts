@@ -1,3 +1,8 @@
+
+const input = 'jadi plis buka plis tambah plis buka plis kurang 70 69 plis tutup 1337 plis tutup';
+
+// do not edit below unless you know what you are doing.
+
 import { CharStreams, CommonTokenStream } from 'antlr4ts';
 import { ParseTreeWalker } from 'antlr4ts/tree/ParseTreeWalker'
 
@@ -6,13 +11,11 @@ import { ExpressionContext, ProgramContext, SimpleLISPParser } from './antlr/Sim
 import { SimpleLISPLexer } from './antlr/SimpleLISP/SimpleLISPLexer';
 import { TerminalNode } from 'antlr4ts/tree/TerminalNode';
 
-const input = 'jadi plis buka plis tambah plis buka plis kurang 70 69 plis tutup 1337 plis tutup';
-
 class lispListener implements SimpleLISPListener {
     result: Array<string> = [];
 
     exitProgram(ctx: ProgramContext) {
-        console.log(this.result.join(" "));
+        // console.log(this.result.join(" "));
     }
 
     enterExpression(ctx: ExpressionContext) {
@@ -34,15 +37,26 @@ class lispListener implements SimpleLISPListener {
             this.result.push(")");
         }
     }
+
+    getResult(): string {
+        return this.result.join(" ");
+    }
 }
 
-const inputStream = CharStreams.fromString(input);
-const lexer = new SimpleLISPLexer(inputStream);
-const tokenStream = new CommonTokenStream(lexer);
-const parser = new SimpleLISPParser(tokenStream);
+export default function JakselToLISP(input: string): string {
+    const inputStream = CharStreams.fromString(input);
+    const lexer = new SimpleLISPLexer(inputStream);
+    const tokenStream = new CommonTokenStream(lexer);
+    const parser = new SimpleLISPParser(tokenStream);
 
-const listener = new lispListener();
-const tree = parser.program();
+    const listener = new lispListener();
+    const tree = parser.program();
 
-const walker = new ParseTreeWalker();
-walker.walk(listener, tree);
+    const walker = new ParseTreeWalker();
+    walker.walk(listener, tree);
+
+    return listener.getResult();
+}
+
+const result = JakselToLISP(input);
+console.log(result);
