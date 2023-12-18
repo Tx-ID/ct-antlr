@@ -1,4 +1,4 @@
-// Generated from SimpleLISP.g4 by ANTLR 4.9.0-SNAPSHOT
+// Generated from JakselLISP.g4 by ANTLR 4.9.0-SNAPSHOT
 
 
 import { ATN } from "antlr4ts/atn/ATN";
@@ -15,7 +15,7 @@ import { VocabularyImpl } from "antlr4ts/VocabularyImpl";
 import * as Utils from "antlr4ts/misc/Utils";
 
 
-export class SimpleLISPLexer extends Lexer {
+export class JakselLISPLexer extends Lexer {
 	public static readonly T__0 = 1;
 	public static readonly T__1 = 2;
 	public static readonly T__2 = 3;
@@ -48,35 +48,35 @@ export class SimpleLISPLexer extends Lexer {
 		undefined, undefined, undefined, undefined, undefined, undefined, "OPEN", 
 		"CLOSE", "ATOM", "WS",
 	];
-	public static readonly VOCABULARY: Vocabulary = new VocabularyImpl(SimpleLISPLexer._LITERAL_NAMES, SimpleLISPLexer._SYMBOLIC_NAMES, []);
+	public static readonly VOCABULARY: Vocabulary = new VocabularyImpl(JakselLISPLexer._LITERAL_NAMES, JakselLISPLexer._SYMBOLIC_NAMES, []);
 
 	// @Override
 	// @NotNull
 	public get vocabulary(): Vocabulary {
-		return SimpleLISPLexer.VOCABULARY;
+		return JakselLISPLexer.VOCABULARY;
 	}
 	// tslint:enable:no-trailing-whitespace
 
 
 	constructor(input: CharStream) {
 		super(input);
-		this._interp = new LexerATNSimulator(SimpleLISPLexer._ATN, this);
+		this._interp = new LexerATNSimulator(JakselLISPLexer._ATN, this);
 	}
 
 	// @Override
-	public get grammarFileName(): string { return "SimpleLISP.g4"; }
+	public get grammarFileName(): string { return "JakselLISP.g4"; }
 
 	// @Override
-	public get ruleNames(): string[] { return SimpleLISPLexer.ruleNames; }
+	public get ruleNames(): string[] { return JakselLISPLexer.ruleNames; }
 
 	// @Override
-	public get serializedATN(): string { return SimpleLISPLexer._serializedATN; }
+	public get serializedATN(): string { return JakselLISPLexer._serializedATN; }
 
 	// @Override
-	public get channelNames(): string[] { return SimpleLISPLexer.channelNames; }
+	public get channelNames(): string[] { return JakselLISPLexer.channelNames; }
 
 	// @Override
-	public get modeNames(): string[] { return SimpleLISPLexer.modeNames; }
+	public get modeNames(): string[] { return JakselLISPLexer.modeNames; }
 
 	public static readonly _serializedATN: string =
 		"\x03\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241\x02\vg\b\x01\x04" +
@@ -121,11 +121,11 @@ export class SimpleLISPLexer extends Lexer {
 		"\x02\x05\x02^c\x03\b\x02\x02";
 	public static __ATN: ATN;
 	public static get _ATN(): ATN {
-		if (!SimpleLISPLexer.__ATN) {
-			SimpleLISPLexer.__ATN = new ATNDeserializer().deserialize(Utils.toCharArray(SimpleLISPLexer._serializedATN));
+		if (!JakselLISPLexer.__ATN) {
+			JakselLISPLexer.__ATN = new ATNDeserializer().deserialize(Utils.toCharArray(JakselLISPLexer._serializedATN));
 		}
 
-		return SimpleLISPLexer.__ATN;
+		return JakselLISPLexer.__ATN;
 	}
 
 }

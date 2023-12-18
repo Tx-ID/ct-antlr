@@ -1,6 +1,6 @@
 # ct-antlr
 
-Will convert grammar from `SimpleLISP.g4` file to minimalist LISP.
+Will convert grammar from `JakselLISP.g4` file to LISP. JakselLISP is a reduced LISP that only does arithmetic.
 
 Input examples: 
 > `jadi plis buka plis tambah plis buka plis kurang 70 69 plis tutup 1337 plis tutup`

@@ -1,29 +1,29 @@
-// Generated from SimpleLISP.g4 by ANTLR 4.9.0-SNAPSHOT
+// Generated from JakselLISP.g4 by ANTLR 4.9.0-SNAPSHOT
 
 
 import { ParseTreeVisitor } from "antlr4ts/tree/ParseTreeVisitor";
 
-import { ProgramContext } from "./SimpleLISPParser";
-import { ExpressionContext } from "./SimpleLISPParser";
+import { ProgramContext } from "./JakselLISPParser";
+import { ExpressionContext } from "./JakselLISPParser";
 
 
 /**
  * This interface defines a complete generic visitor for a parse tree produced
- * by `SimpleLISPParser`.
+ * by `JakselLISPParser`.
  *
  * @param <Result> The return type of the visit operation. Use `void` for
  * operations with no return type.
  */
-export interface SimpleLISPVisitor<Result> extends ParseTreeVisitor<Result> {
+export interface JakselLISPVisitor<Result> extends ParseTreeVisitor<Result> {
 	/**
-	 * Visit a parse tree produced by `SimpleLISPParser.program`.
+	 * Visit a parse tree produced by `JakselLISPParser.program`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	visitProgram?: (ctx: ProgramContext) => Result;
 
 	/**
-	 * Visit a parse tree produced by `SimpleLISPParser.expression`.
+	 * Visit a parse tree produced by `JakselLISPParser.expression`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */

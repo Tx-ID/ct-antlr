@@ -10,12 +10,12 @@
     "@types/node": "~18",
     "antlr4ts-cli": "^0.5.0-alpha.4",
     "prettier": "~3.0",
+    "tsup": "^8.0.1",
     "typescript": "~5.1"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "format": "tsc -p tsconfig.json || true && node build/format.js",
-    "lisp": "cd src/antlr && rm -rf ./SimpleLISP && antlr4ts -visitor -o SimpleLISP SimpleLISP.g4 && cd ../.. && tsc -p tsconfig.json || true && node build/lisp.js"
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "lisp": "cd src/antlr && rm -rf ./JakselLISP && antlr4ts -visitor -o JakselLISP JakselLISP.g4"
   },
   "author": "Emmanuel Clement <tix.personal@gmail.com> (tix.fyi)",
   "license": "Apache-2.0",
@@ -26,6 +26,7 @@
   "volta": {
     "node": "18.12.1"
   },
-  "main": "build/lisp.js",
-  "types": "build/lisp.d.ts"
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts"
 }

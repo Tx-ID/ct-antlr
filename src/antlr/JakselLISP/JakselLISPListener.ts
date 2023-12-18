@@ -1,35 +1,35 @@
-// Generated from SimpleLISP.g4 by ANTLR 4.9.0-SNAPSHOT
+// Generated from JakselLISP.g4 by ANTLR 4.9.0-SNAPSHOT
 
 
 import { ParseTreeListener } from "antlr4ts/tree/ParseTreeListener";
 
-import { ProgramContext } from "./SimpleLISPParser";
-import { ExpressionContext } from "./SimpleLISPParser";
+import { ProgramContext } from "./JakselLISPParser";
+import { ExpressionContext } from "./JakselLISPParser";
 
 
 /**
  * This interface defines a complete listener for a parse tree produced by
- * `SimpleLISPParser`.
+ * `JakselLISPParser`.
  */
-export interface SimpleLISPListener extends ParseTreeListener {
+export interface JakselLISPListener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by `SimpleLISPParser.program`.
+	 * Enter a parse tree produced by `JakselLISPParser.program`.
 	 * @param ctx the parse tree
 	 */
 	enterProgram?: (ctx: ProgramContext) => void;
 	/**
-	 * Exit a parse tree produced by `SimpleLISPParser.program`.
+	 * Exit a parse tree produced by `JakselLISPParser.program`.
 	 * @param ctx the parse tree
 	 */
 	exitProgram?: (ctx: ProgramContext) => void;
 
 	/**
-	 * Enter a parse tree produced by `SimpleLISPParser.expression`.
+	 * Enter a parse tree produced by `JakselLISPParser.expression`.
 	 * @param ctx the parse tree
 	 */
 	enterExpression?: (ctx: ExpressionContext) => void;
 	/**
-	 * Exit a parse tree produced by `SimpleLISPParser.expression`.
+	 * Exit a parse tree produced by `JakselLISPParser.expression`.
 	 * @param ctx the parse tree
 	 */
 	exitExpression?: (ctx: ExpressionContext) => void;

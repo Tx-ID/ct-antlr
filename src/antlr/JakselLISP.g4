@@ -1,5 +1,5 @@
 
-grammar SimpleLISP;
+grammar JakselLISP;
 
 program: 'jadi' expression+;
 

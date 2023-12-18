@@ -1,4 +1,4 @@
-// Generated from SimpleLISP.g4 by ANTLR 4.9.0-SNAPSHOT
+// Generated from JakselLISP.g4 by ANTLR 4.9.0-SNAPSHOT
 
 
 import { ATN } from "antlr4ts/atn/ATN";
@@ -23,11 +23,11 @@ import { VocabularyImpl } from "antlr4ts/VocabularyImpl";
 
 import * as Utils from "antlr4ts/misc/Utils";
 
-import { SimpleLISPListener } from "./SimpleLISPListener";
-import { SimpleLISPVisitor } from "./SimpleLISPVisitor";
+import { JakselLISPListener } from "./JakselLISPListener";
+import { JakselLISPVisitor } from "./JakselLISPVisitor";
 
 
-export class SimpleLISPParser extends Parser {
+export class JakselLISPParser extends Parser {
 	public static readonly T__0 = 1;
 	public static readonly T__1 = 2;
 	public static readonly T__2 = 3;
@@ -52,23 +52,23 @@ export class SimpleLISPParser extends Parser {
 		undefined, undefined, undefined, undefined, undefined, undefined, "OPEN", 
 		"CLOSE", "ATOM", "WS",
 	];
-	public static readonly VOCABULARY: Vocabulary = new VocabularyImpl(SimpleLISPParser._LITERAL_NAMES, SimpleLISPParser._SYMBOLIC_NAMES, []);
+	public static readonly VOCABULARY: Vocabulary = new VocabularyImpl(JakselLISPParser._LITERAL_NAMES, JakselLISPParser._SYMBOLIC_NAMES, []);
 
 	// @Override
 	// @NotNull
 	public get vocabulary(): Vocabulary {
-		return SimpleLISPParser.VOCABULARY;
+		return JakselLISPParser.VOCABULARY;
 	}
 	// tslint:enable:no-trailing-whitespace
 
 	// @Override
-	public get grammarFileName(): string { return "SimpleLISP.g4"; }
+	public get grammarFileName(): string { return "JakselLISP.g4"; }
 
 	// @Override
-	public get ruleNames(): string[] { return SimpleLISPParser.ruleNames; }
+	public get ruleNames(): string[] { return JakselLISPParser.ruleNames; }
 
 	// @Override
-	public get serializedATN(): string { return SimpleLISPParser._serializedATN; }
+	public get serializedATN(): string { return JakselLISPParser._serializedATN; }
 
 	protected createFailedPredicateException(predicate?: string, message?: string): FailedPredicateException {
 		return new FailedPredicateException(this, predicate, message);
@@ -76,18 +76,18 @@ export class SimpleLISPParser extends Parser {
 
 	constructor(input: TokenStream) {
 		super(input);
-		this._interp = new ParserATNSimulator(SimpleLISPParser._ATN, this);
+		this._interp = new ParserATNSimulator(JakselLISPParser._ATN, this);
 	}
 	// @RuleVersion(0)
 	public program(): ProgramContext {
 		let _localctx: ProgramContext = new ProgramContext(this._ctx, this.state);
-		this.enterRule(_localctx, 0, SimpleLISPParser.RULE_program);
+		this.enterRule(_localctx, 0, JakselLISPParser.RULE_program);
 		let _la: number;
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
 			this.state = 4;
-			this.match(SimpleLISPParser.T__0);
+			this.match(JakselLISPParser.T__0);
 			this.state = 6;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
@@ -101,7 +101,7 @@ export class SimpleLISPParser extends Parser {
 				this.state = 8;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
-			} while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << SimpleLISPParser.T__1) | (1 << SimpleLISPParser.T__2) | (1 << SimpleLISPParser.T__3) | (1 << SimpleLISPParser.T__4) | (1 << SimpleLISPParser.OPEN) | (1 << SimpleLISPParser.ATOM))) !== 0));
+			} while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << JakselLISPParser.T__1) | (1 << JakselLISPParser.T__2) | (1 << JakselLISPParser.T__3) | (1 << JakselLISPParser.T__4) | (1 << JakselLISPParser.OPEN) | (1 << JakselLISPParser.ATOM))) !== 0));
 			}
 		}
 		catch (re) {
@@ -121,56 +121,56 @@ export class SimpleLISPParser extends Parser {
 	// @RuleVersion(0)
 	public expression(): ExpressionContext {
 		let _localctx: ExpressionContext = new ExpressionContext(this._ctx, this.state);
-		this.enterRule(_localctx, 2, SimpleLISPParser.RULE_expression);
+		this.enterRule(_localctx, 2, JakselLISPParser.RULE_expression);
 		let _la: number;
 		try {
 			this.state = 23;
 			this._errHandler.sync(this);
 			switch (this._input.LA(1)) {
-			case SimpleLISPParser.ATOM:
+			case JakselLISPParser.ATOM:
 				this.enterOuterAlt(_localctx, 1);
 				{
 				this.state = 10;
-				this.match(SimpleLISPParser.ATOM);
+				this.match(JakselLISPParser.ATOM);
 				}
 				break;
-			case SimpleLISPParser.T__1:
+			case JakselLISPParser.T__1:
 				this.enterOuterAlt(_localctx, 2);
 				{
 				this.state = 11;
-				this.match(SimpleLISPParser.T__1);
+				this.match(JakselLISPParser.T__1);
 				}
 				break;
-			case SimpleLISPParser.T__2:
+			case JakselLISPParser.T__2:
 				this.enterOuterAlt(_localctx, 3);
 				{
 				this.state = 12;
-				this.match(SimpleLISPParser.T__2);
+				this.match(JakselLISPParser.T__2);
 				}
 				break;
-			case SimpleLISPParser.T__3:
+			case JakselLISPParser.T__3:
 				this.enterOuterAlt(_localctx, 4);
 				{
 				this.state = 13;
-				this.match(SimpleLISPParser.T__3);
+				this.match(JakselLISPParser.T__3);
 				}
 				break;
-			case SimpleLISPParser.T__4:
+			case JakselLISPParser.T__4:
 				this.enterOuterAlt(_localctx, 5);
 				{
 				this.state = 14;
-				this.match(SimpleLISPParser.T__4);
+				this.match(JakselLISPParser.T__4);
 				}
 				break;
-			case SimpleLISPParser.OPEN:
+			case JakselLISPParser.OPEN:
 				this.enterOuterAlt(_localctx, 6);
 				{
 				this.state = 15;
-				this.match(SimpleLISPParser.OPEN);
+				this.match(JakselLISPParser.OPEN);
 				this.state = 19;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
-				while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << SimpleLISPParser.T__1) | (1 << SimpleLISPParser.T__2) | (1 << SimpleLISPParser.T__3) | (1 << SimpleLISPParser.T__4) | (1 << SimpleLISPParser.OPEN) | (1 << SimpleLISPParser.ATOM))) !== 0)) {
+				while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << JakselLISPParser.T__1) | (1 << JakselLISPParser.T__2) | (1 << JakselLISPParser.T__3) | (1 << JakselLISPParser.T__4) | (1 << JakselLISPParser.OPEN) | (1 << JakselLISPParser.ATOM))) !== 0)) {
 					{
 					{
 					this.state = 16;
@@ -182,7 +182,7 @@ export class SimpleLISPParser extends Parser {
 					_la = this._input.LA(1);
 				}
 				this.state = 22;
-				this.match(SimpleLISPParser.CLOSE);
+				this.match(JakselLISPParser.CLOSE);
 				}
 				break;
 			default:
@@ -222,11 +222,11 @@ export class SimpleLISPParser extends Parser {
 		"\x02\x02\x02\x05\n\x15\x19";
 	public static __ATN: ATN;
 	public static get _ATN(): ATN {
-		if (!SimpleLISPParser.__ATN) {
-			SimpleLISPParser.__ATN = new ATNDeserializer().deserialize(Utils.toCharArray(SimpleLISPParser._serializedATN));
+		if (!JakselLISPParser.__ATN) {
+			JakselLISPParser.__ATN = new ATNDeserializer().deserialize(Utils.toCharArray(JakselLISPParser._serializedATN));
 		}
 
-		return SimpleLISPParser.__ATN;
+		return JakselLISPParser.__ATN;
 	}
 
 }
@@ -245,21 +245,21 @@ export class ProgramContext extends ParserRuleContext {
 		super(parent, invokingState);
 	}
 	// @Override
-	public get ruleIndex(): number { return SimpleLISPParser.RULE_program; }
+	public get ruleIndex(): number { return JakselLISPParser.RULE_program; }
 	// @Override
-	public enterRule(listener: SimpleLISPListener): void {
+	public enterRule(listener: JakselLISPListener): void {
 		if (listener.enterProgram) {
 			listener.enterProgram(this);
 		}
 	}
 	// @Override
-	public exitRule(listener: SimpleLISPListener): void {
+	public exitRule(listener: JakselLISPListener): void {
 		if (listener.exitProgram) {
 			listener.exitProgram(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: SimpleLISPVisitor<Result>): Result {
+	public accept<Result>(visitor: JakselLISPVisitor<Result>): Result {
 		if (visitor.visitProgram) {
 			return visitor.visitProgram(this);
 		} else {
@@ -270,9 +270,9 @@ export class ProgramContext extends ParserRuleContext {
 
 
 export class ExpressionContext extends ParserRuleContext {
-	public ATOM(): TerminalNode | undefined { return this.tryGetToken(SimpleLISPParser.ATOM, 0); }
-	public OPEN(): TerminalNode | undefined { return this.tryGetToken(SimpleLISPParser.OPEN, 0); }
-	public CLOSE(): TerminalNode | undefined { return this.tryGetToken(SimpleLISPParser.CLOSE, 0); }
+	public ATOM(): TerminalNode | undefined { return this.tryGetToken(JakselLISPParser.ATOM, 0); }
+	public OPEN(): TerminalNode | undefined { return this.tryGetToken(JakselLISPParser.OPEN, 0); }
+	public CLOSE(): TerminalNode | undefined { return this.tryGetToken(JakselLISPParser.CLOSE, 0); }
 	public expression(): ExpressionContext[];
 	public expression(i: number): ExpressionContext;
 	public expression(i?: number): ExpressionContext | ExpressionContext[] {
@@ -286,21 +286,21 @@ export class ExpressionContext extends ParserRuleContext {
 		super(parent, invokingState);
 	}
 	// @Override
-	public get ruleIndex(): number { return SimpleLISPParser.RULE_expression; }
+	public get ruleIndex(): number { return JakselLISPParser.RULE_expression; }
 	// @Override
-	public enterRule(listener: SimpleLISPListener): void {
+	public enterRule(listener: JakselLISPListener): void {
 		if (listener.enterExpression) {
 			listener.enterExpression(this);
 		}
 	}
 	// @Override
-	public exitRule(listener: SimpleLISPListener): void {
+	public exitRule(listener: JakselLISPListener): void {
 		if (listener.exitExpression) {
 			listener.exitExpression(this);
 		}
 	}
 	// @Override
-	public accept<Result>(visitor: SimpleLISPVisitor<Result>): Result {
+	public accept<Result>(visitor: JakselLISPVisitor<Result>): Result {
 		if (visitor.visitExpression) {
 			return visitor.visitExpression(this);
 		} else {

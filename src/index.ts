@@ -1,27 +1,21 @@
-
-const input = 'jadi plis buka plis tambah plis buka plis kurang 70 69 plis tutup 1337 plis tutup';
-
-// do not edit below unless you know what you are doing.
-
-import { BailErrorStrategy, CharStreams, CommonTokenStream, ANTLRErrorListener, Recognizer, RecognitionException } from 'antlr4ts';
+import { CharStreams, CommonTokenStream, ANTLRErrorListener, Recognizer, RecognitionException } from 'antlr4ts';
 import { ParseTreeWalker } from 'antlr4ts/tree/ParseTreeWalker'
 
-import { SimpleLISPListener } from './antlr/SimpleLISP/SimpleLISPListener';
-import { ExpressionContext, ProgramContext, SimpleLISPParser } from './antlr/SimpleLISP/SimpleLISPParser';
-import { SimpleLISPLexer } from './antlr/SimpleLISP/SimpleLISPLexer';
-import { TerminalNode } from 'antlr4ts/tree/TerminalNode';
+import { JakselLISPListener } from './antlr/JakselLISP/JakselLISPListener';
+import { ExpressionContext, ProgramContext, JakselLISPParser } from './antlr/JakselLISP/JakselLISPParser';
+import { JakselLISPLexer } from './antlr/JakselLISP/JakselLISPLexer';
 import { ErrorNode } from 'antlr4ts/tree/ErrorNode';
 
 class MyErrorListener implements ANTLRErrorListener<any> {
     err?: string
 
     syntaxError(
-        recognizer: Recognizer<any, any>,
-        offendingSymbol: any,
-        line: number,
-        charPositionInLine: number,
+        _recognizer: Recognizer<any, any>,
+        _offendingSymbol: any,
+        _line: number,
+        _charPositionInLine: number,
         msg: string,
-        e: RecognitionException | undefined
+        _e: RecognitionException | undefined
     ) {
         // Handle the error here, you can log it or send it to the client
         // console.error(`Error at line ${line}:${charPositionInLine} - ${msg}`);
@@ -29,10 +23,10 @@ class MyErrorListener implements ANTLRErrorListener<any> {
     }
 }
 
-class lispListener implements SimpleLISPListener {
+class Listener implements JakselLISPListener {
     result: Array<string> = [];
 
-    exitProgram(ctx: ProgramContext) {
+    exitProgram(_ctx: ProgramContext) {
         // console.log(this.result.join(" "));
     }
 
@@ -56,7 +50,7 @@ class lispListener implements SimpleLISPListener {
         }
     }
 
-    visitErrorNode(node: ErrorNode) {
+    visitErrorNode(_node: ErrorNode) {
         // console.log("error!")
     }
 
@@ -67,14 +61,14 @@ class lispListener implements SimpleLISPListener {
 
 export default function JakselToLISP(input: string): { success: true, content: string } | { success: false, error: string } {
     const inputStream = CharStreams.fromString(input);
-    const lexer = new SimpleLISPLexer(inputStream);
+    const lexer = new JakselLISPLexer(inputStream);
     const tokenStream = new CommonTokenStream(lexer);
-    const parser = new SimpleLISPParser(tokenStream);
+    const parser = new JakselLISPParser(tokenStream);
 
     const errListener = new MyErrorListener();
     parser.addErrorListener(errListener);
 
-    const listener = new lispListener();
+    const listener = new Listener();
     const tree = parser.program();
 
     const walker = new ParseTreeWalker();
@@ -85,7 +79,3 @@ export default function JakselToLISP(input: string): { success: true, content: s
     }
     return { success: true, content: listener.getResult() };
 }
-
-const result = JakselToLISP(input);
-console.log(result.success);
-console.log(result.success === true ? result.content : result.error);
