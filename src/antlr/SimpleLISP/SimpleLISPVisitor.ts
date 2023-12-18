@@ -4,7 +4,6 @@
 import { ParseTreeVisitor } from "antlr4ts/tree/ParseTreeVisitor";
 
 import { ProgramContext } from "./SimpleLISPParser";
-import { StatementContext } from "./SimpleLISPParser";
 import { ExpressionContext } from "./SimpleLISPParser";
 
 
@@ -22,13 +21,6 @@ export interface SimpleLISPVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitProgram?: (ctx: ProgramContext) => Result;
-
-	/**
-	 * Visit a parse tree produced by `SimpleLISPParser.statement`.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	visitStatement?: (ctx: StatementContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `SimpleLISPParser.expression`.

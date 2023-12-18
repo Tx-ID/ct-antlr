@@ -1,18 +1,12 @@
-// SimpleLISP.g4
+
 grammar SimpleLISP;
 
-program: statement+;
+program: expression+;
 
-statement: expression NEWLINE;
+expression: ATOM 
+          | 'tambah' | 'kurang'
+          | 'kali' | 'bagi'
+          | '(' expression* ')';
 
-expression: INTEGER
-          | ID
-          | expression op=('*' | '/') expression
-          | expression op=('+' | '-') expression
-          | '(' expression ')';
-
-INTEGER: [0-9]+;
-ID: [a-zA-Z]+;
-NEWLINE: '\r'? '\n' ;
-WS: [ \t]+ -> skip;
-
+ATOM: [a-zA-Z0-9]+;
+WS: [ \t\r\n]+ -> skip;

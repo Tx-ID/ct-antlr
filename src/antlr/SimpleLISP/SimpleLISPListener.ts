@@ -4,7 +4,6 @@
 import { ParseTreeListener } from "antlr4ts/tree/ParseTreeListener";
 
 import { ProgramContext } from "./SimpleLISPParser";
-import { StatementContext } from "./SimpleLISPParser";
 import { ExpressionContext } from "./SimpleLISPParser";
 
 
@@ -23,17 +22,6 @@ export interface SimpleLISPListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitProgram?: (ctx: ProgramContext) => void;
-
-	/**
-	 * Enter a parse tree produced by `SimpleLISPParser.statement`.
-	 * @param ctx the parse tree
-	 */
-	enterStatement?: (ctx: StatementContext) => void;
-	/**
-	 * Exit a parse tree produced by `SimpleLISPParser.statement`.
-	 * @param ctx the parse tree
-	 */
-	exitStatement?: (ctx: StatementContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `SimpleLISPParser.expression`.

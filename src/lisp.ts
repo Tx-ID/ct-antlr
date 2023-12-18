@@ -4,40 +4,37 @@ import { ParseTreeWalker } from 'antlr4ts/tree/ParseTreeWalker'
 import { SimpleLISPListener } from './antlr/SimpleLISP/SimpleLISPListener';
 import { ExpressionContext, ProgramContext, SimpleLISPParser } from './antlr/SimpleLISP/SimpleLISPParser';
 import { SimpleLISPLexer } from './antlr/SimpleLISP/SimpleLISPLexer';
+import { TerminalNode } from 'antlr4ts/tree/TerminalNode';
 
-const input = '1 + 2 * (3 - 4) / 5\n';
+const input = '( kurang ( tambah 9 7 ) 10 )';
 
 class lispListener implements SimpleLISPListener {
-    result: string = '';
+    result: Array<string> = [];
 
-    // Override methods from SimpleLISPListener as needed
+    enterProgram(ctx: ProgramContext) {
 
-    exitProgram(ctx: ProgramContext) {
-        console.log(this.result);
     }
 
-    exitExpression(ctx: ExpressionContext) {
-        if (ctx.INTEGER()) {
-            this.result += ctx.INTEGER().toString();
-        } else if (ctx.ID()) {
-            this.result += ctx.ID().toString();
-        } else if (ctx.children) {
-            // If the expression has children, it is a complex expression
-            if (ctx.children.length === 1) {
-                // Handle parentheses
-                console.log('(');
-            } else if (ctx.children.length === 3) {
-                // Handle binary operators
-                const left = ctx.children[0].text;
-                const operator = ctx.children[1].text;
-                const right = ctx.children[2].text;
+    exitProgram(ctx: ProgramContext) {
+        console.log(this.result.join(" "));
+    }
 
-                console.log(`(${operator} ${left} ${right})`);
-            }
+    enterExpression(ctx: ExpressionContext) {
+        const operator: string = ctx.getChild(0)?.text ?? '';
+
+        if (operator === 'tambah' || operator === 'kurang') {
+            this.result.push('(');
+            this.result.push(operator === 'tambah' ? "+" : "-");
+        } else if (ctx.ATOM()) {
+            this.result.push(ctx.ATOM().toString());
         }
     }
 
-    // Implement other methods as needed
+    exitExpression(ctx: ExpressionContext) {
+        if (ctx.children && ctx.children[ctx.childCount - 1]?.text === ')') {
+            this.result.push(')');
+        }
+    }
 }
 
 const inputStream = CharStreams.fromString(input);
