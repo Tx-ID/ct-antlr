@@ -32,10 +32,11 @@ export class SimpleLISPParser extends Parser {
 	public static readonly T__1 = 2;
 	public static readonly T__2 = 3;
 	public static readonly T__3 = 4;
-	public static readonly OPEN = 5;
-	public static readonly CLOSE = 6;
-	public static readonly ATOM = 7;
-	public static readonly WS = 8;
+	public static readonly T__4 = 5;
+	public static readonly OPEN = 6;
+	public static readonly CLOSE = 7;
+	public static readonly ATOM = 8;
+	public static readonly WS = 9;
 	public static readonly RULE_program = 0;
 	public static readonly RULE_expression = 1;
 	// tslint:disable:no-trailing-whitespace
@@ -44,11 +45,12 @@ export class SimpleLISPParser extends Parser {
 	];
 
 	private static readonly _LITERAL_NAMES: Array<string | undefined> = [
-		undefined, "'tambah'", "'kurang'", "'kali'", "'bagi'", "'bukalah'", "'ditutup'",
+		undefined, "'jadi'", "'plis tambah'", "'plis kurang'", "'plis kali'", 
+		"'plis bagi'", "'plis buka'", "'plis tutup'",
 	];
 	private static readonly _SYMBOLIC_NAMES: Array<string | undefined> = [
-		undefined, undefined, undefined, undefined, undefined, "OPEN", "CLOSE", 
-		"ATOM", "WS",
+		undefined, undefined, undefined, undefined, undefined, undefined, "OPEN", 
+		"CLOSE", "ATOM", "WS",
 	];
 	public static readonly VOCABULARY: Vocabulary = new VocabularyImpl(SimpleLISPParser._LITERAL_NAMES, SimpleLISPParser._SYMBOLIC_NAMES, []);
 
@@ -84,20 +86,22 @@ export class SimpleLISPParser extends Parser {
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 5;
+			this.state = 4;
+			this.match(SimpleLISPParser.T__0);
+			this.state = 6;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
 			do {
 				{
 				{
-				this.state = 4;
+				this.state = 5;
 				this.expression();
 				}
 				}
-				this.state = 7;
+				this.state = 8;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
-			} while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << SimpleLISPParser.T__0) | (1 << SimpleLISPParser.T__1) | (1 << SimpleLISPParser.T__2) | (1 << SimpleLISPParser.T__3) | (1 << SimpleLISPParser.OPEN) | (1 << SimpleLISPParser.ATOM))) !== 0));
+			} while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << SimpleLISPParser.T__1) | (1 << SimpleLISPParser.T__2) | (1 << SimpleLISPParser.T__3) | (1 << SimpleLISPParser.T__4) | (1 << SimpleLISPParser.OPEN) | (1 << SimpleLISPParser.ATOM))) !== 0));
 			}
 		}
 		catch (re) {
@@ -120,64 +124,64 @@ export class SimpleLISPParser extends Parser {
 		this.enterRule(_localctx, 2, SimpleLISPParser.RULE_expression);
 		let _la: number;
 		try {
-			this.state = 22;
+			this.state = 23;
 			this._errHandler.sync(this);
 			switch (this._input.LA(1)) {
 			case SimpleLISPParser.ATOM:
 				this.enterOuterAlt(_localctx, 1);
 				{
-				this.state = 9;
+				this.state = 10;
 				this.match(SimpleLISPParser.ATOM);
 				}
 				break;
-			case SimpleLISPParser.T__0:
-				this.enterOuterAlt(_localctx, 2);
-				{
-				this.state = 10;
-				this.match(SimpleLISPParser.T__0);
-				}
-				break;
 			case SimpleLISPParser.T__1:
-				this.enterOuterAlt(_localctx, 3);
+				this.enterOuterAlt(_localctx, 2);
 				{
 				this.state = 11;
 				this.match(SimpleLISPParser.T__1);
 				}
 				break;
 			case SimpleLISPParser.T__2:
-				this.enterOuterAlt(_localctx, 4);
+				this.enterOuterAlt(_localctx, 3);
 				{
 				this.state = 12;
 				this.match(SimpleLISPParser.T__2);
 				}
 				break;
 			case SimpleLISPParser.T__3:
-				this.enterOuterAlt(_localctx, 5);
+				this.enterOuterAlt(_localctx, 4);
 				{
 				this.state = 13;
 				this.match(SimpleLISPParser.T__3);
 				}
 				break;
+			case SimpleLISPParser.T__4:
+				this.enterOuterAlt(_localctx, 5);
+				{
+				this.state = 14;
+				this.match(SimpleLISPParser.T__4);
+				}
+				break;
 			case SimpleLISPParser.OPEN:
 				this.enterOuterAlt(_localctx, 6);
 				{
-				this.state = 14;
+				this.state = 15;
 				this.match(SimpleLISPParser.OPEN);
-				this.state = 18;
+				this.state = 19;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
-				while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << SimpleLISPParser.T__0) | (1 << SimpleLISPParser.T__1) | (1 << SimpleLISPParser.T__2) | (1 << SimpleLISPParser.T__3) | (1 << SimpleLISPParser.OPEN) | (1 << SimpleLISPParser.ATOM))) !== 0)) {
+				while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << SimpleLISPParser.T__1) | (1 << SimpleLISPParser.T__2) | (1 << SimpleLISPParser.T__3) | (1 << SimpleLISPParser.T__4) | (1 << SimpleLISPParser.OPEN) | (1 << SimpleLISPParser.ATOM))) !== 0)) {
 					{
 					{
-					this.state = 15;
+					this.state = 16;
 					this.expression();
 					}
 					}
-					this.state = 20;
+					this.state = 21;
 					this._errHandler.sync(this);
 					_la = this._input.LA(1);
 				}
-				this.state = 21;
+				this.state = 22;
 				this.match(SimpleLISPParser.CLOSE);
 				}
 				break;
@@ -201,20 +205,21 @@ export class SimpleLISPParser extends Parser {
 	}
 
 	public static readonly _serializedATN: string =
-		"\x03\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241\x03\n\x1B\x04\x02" +
-		"\t\x02\x04\x03\t\x03\x03\x02\x06\x02\b\n\x02\r\x02\x0E\x02\t\x03\x03\x03" +
-		"\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03\x07\x03\x13\n\x03\f\x03\x0E" +
-		"\x03\x16\v\x03\x03\x03\x05\x03\x19\n\x03\x03\x03\x02\x02\x02\x04\x02\x02" +
-		"\x04\x02\x02\x02\x02\x1F\x02\x07\x03\x02\x02\x02\x04\x18\x03\x02\x02\x02" +
-		"\x06\b\x05\x04\x03\x02\x07\x06\x03\x02\x02\x02\b\t\x03\x02\x02\x02\t\x07" +
-		"\x03\x02\x02\x02\t\n\x03\x02\x02\x02\n\x03\x03\x02\x02\x02\v\x19\x07\t" +
-		"\x02\x02\f\x19\x07\x03\x02\x02\r\x19\x07\x04\x02\x02\x0E\x19\x07\x05\x02" +
-		"\x02\x0F\x19\x07\x06\x02\x02\x10\x14\x07\x07\x02\x02\x11\x13\x05\x04\x03" +
-		"\x02\x12\x11\x03\x02\x02\x02\x13\x16\x03\x02\x02\x02\x14\x12\x03\x02\x02" +
-		"\x02\x14\x15\x03\x02\x02\x02\x15\x17\x03\x02\x02\x02\x16\x14\x03\x02\x02" +
-		"\x02\x17\x19\x07\b\x02\x02\x18\v\x03\x02\x02\x02\x18\f\x03\x02\x02\x02" +
-		"\x18\r\x03\x02\x02\x02\x18\x0E\x03\x02\x02\x02\x18\x0F\x03\x02\x02\x02" +
-		"\x18\x10\x03\x02\x02\x02\x19\x05\x03\x02\x02\x02\x05\t\x14\x18";
+		"\x03\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241\x03\v\x1C\x04\x02" +
+		"\t\x02\x04\x03\t\x03\x03\x02\x03\x02\x06\x02\t\n\x02\r\x02\x0E\x02\n\x03" +
+		"\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03\x03\x07\x03\x14\n\x03" +
+		"\f\x03\x0E\x03\x17\v\x03\x03\x03\x05\x03\x1A\n\x03\x03\x03\x02\x02\x02" +
+		"\x04\x02\x02\x04\x02\x02\x02\x02 \x02\x06\x03\x02\x02\x02\x04\x19\x03" +
+		"\x02\x02\x02\x06\b\x07\x03\x02\x02\x07\t\x05\x04\x03\x02\b\x07\x03\x02" +
+		"\x02\x02\t\n\x03\x02\x02\x02\n\b\x03\x02\x02\x02\n\v\x03\x02\x02\x02\v" +
+		"\x03\x03\x02\x02\x02\f\x1A\x07\n\x02\x02\r\x1A\x07\x04\x02\x02\x0E\x1A" +
+		"\x07\x05\x02\x02\x0F\x1A\x07\x06\x02\x02\x10\x1A\x07\x07\x02\x02\x11\x15" +
+		"\x07\b\x02\x02\x12\x14\x05\x04\x03\x02\x13\x12\x03\x02\x02\x02\x14\x17" +
+		"\x03\x02\x02\x02\x15\x13\x03\x02\x02\x02\x15\x16\x03\x02\x02\x02\x16\x18" +
+		"\x03\x02\x02\x02\x17\x15\x03\x02\x02\x02\x18\x1A\x07\t\x02\x02\x19\f\x03" +
+		"\x02\x02\x02\x19\r\x03\x02\x02\x02\x19\x0E\x03\x02\x02\x02\x19\x0F\x03" +
+		"\x02\x02\x02\x19\x10\x03\x02\x02\x02\x19\x11\x03\x02\x02\x02\x1A\x05\x03" +
+		"\x02\x02\x02\x05\n\x15\x19";
 	public static __ATN: ATN;
 	public static get _ATN(): ATN {
 		if (!SimpleLISPParser.__ATN) {

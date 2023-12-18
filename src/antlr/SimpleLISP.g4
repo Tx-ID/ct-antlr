@@ -1,14 +1,14 @@
 
 grammar SimpleLISP;
 
-program: expression+;
+program: 'jadi' expression+;
 
 expression: ATOM 
-          | 'tambah' | 'kurang'
-          | 'kali' | 'bagi'
+          | 'plis tambah' | 'plis kurang'
+          | 'plis kali' | 'plis bagi'
           | OPEN expression* CLOSE;
 
-OPEN: 'bukalah';
-CLOSE: 'ditutup';
+OPEN: 'plis buka';
+CLOSE: 'plis tutup';
 ATOM: [a-zA-Z0-9]+;
 WS: [ \t\r\n]+ -> skip;
