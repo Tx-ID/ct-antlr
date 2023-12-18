@@ -6,7 +6,7 @@ import { ExpressionContext, ProgramContext, SimpleLISPParser } from './antlr/Sim
 import { SimpleLISPLexer } from './antlr/SimpleLISP/SimpleLISPLexer';
 import { TerminalNode } from 'antlr4ts/tree/TerminalNode';
 
-const input = '( kurang ( tambah 9 7 ) 10 )';
+const input = 'bukalah kurang bukalah tambah 9 7 ditutup 10 ditutup';
 
 class lispListener implements SimpleLISPListener {
     result: Array<string> = [];
@@ -23,16 +23,19 @@ class lispListener implements SimpleLISPListener {
         const operator: string = ctx.getChild(0)?.text ?? '';
 
         if (operator === 'tambah' || operator === 'kurang') {
-            this.result.push('(');
             this.result.push(operator === 'tambah' ? "+" : "-");
         } else if (ctx.ATOM()) {
             this.result.push(ctx.ATOM().toString());
+        } else if (ctx.OPEN()) {
+            this.result.push(ctx.OPEN().toString());
+        } else if (ctx.CLOSE()) {
+            this.result.push(ctx.CLOSE().toString());
         }
     }
 
     exitExpression(ctx: ExpressionContext) {
-        if (ctx.children && ctx.children[ctx.childCount - 1]?.text === ')') {
-            this.result.push(')');
+        if (ctx.CLOSE()) {
+            this.result.push(ctx.CLOSE().toString());
         }
     }
 }

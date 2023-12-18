@@ -32,8 +32,8 @@ export class SimpleLISPParser extends Parser {
 	public static readonly T__1 = 2;
 	public static readonly T__2 = 3;
 	public static readonly T__3 = 4;
-	public static readonly T__4 = 5;
-	public static readonly T__5 = 6;
+	public static readonly OPEN = 5;
+	public static readonly CLOSE = 6;
 	public static readonly ATOM = 7;
 	public static readonly WS = 8;
 	public static readonly RULE_program = 0;
@@ -44,10 +44,10 @@ export class SimpleLISPParser extends Parser {
 	];
 
 	private static readonly _LITERAL_NAMES: Array<string | undefined> = [
-		undefined, "'tambah'", "'kurang'", "'kali'", "'bagi'", "'('", "')'",
+		undefined, "'tambah'", "'kurang'", "'kali'", "'bagi'", "'bukalah'", "'ditutup'",
 	];
 	private static readonly _SYMBOLIC_NAMES: Array<string | undefined> = [
-		undefined, undefined, undefined, undefined, undefined, undefined, undefined, 
+		undefined, undefined, undefined, undefined, undefined, "OPEN", "CLOSE", 
 		"ATOM", "WS",
 	];
 	public static readonly VOCABULARY: Vocabulary = new VocabularyImpl(SimpleLISPParser._LITERAL_NAMES, SimpleLISPParser._SYMBOLIC_NAMES, []);
@@ -97,7 +97,7 @@ export class SimpleLISPParser extends Parser {
 				this.state = 7;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
-			} while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << SimpleLISPParser.T__0) | (1 << SimpleLISPParser.T__1) | (1 << SimpleLISPParser.T__2) | (1 << SimpleLISPParser.T__3) | (1 << SimpleLISPParser.T__4) | (1 << SimpleLISPParser.ATOM))) !== 0));
+			} while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << SimpleLISPParser.T__0) | (1 << SimpleLISPParser.T__1) | (1 << SimpleLISPParser.T__2) | (1 << SimpleLISPParser.T__3) | (1 << SimpleLISPParser.OPEN) | (1 << SimpleLISPParser.ATOM))) !== 0));
 			}
 		}
 		catch (re) {
@@ -158,15 +158,15 @@ export class SimpleLISPParser extends Parser {
 				this.match(SimpleLISPParser.T__3);
 				}
 				break;
-			case SimpleLISPParser.T__4:
+			case SimpleLISPParser.OPEN:
 				this.enterOuterAlt(_localctx, 6);
 				{
 				this.state = 14;
-				this.match(SimpleLISPParser.T__4);
+				this.match(SimpleLISPParser.OPEN);
 				this.state = 18;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
-				while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << SimpleLISPParser.T__0) | (1 << SimpleLISPParser.T__1) | (1 << SimpleLISPParser.T__2) | (1 << SimpleLISPParser.T__3) | (1 << SimpleLISPParser.T__4) | (1 << SimpleLISPParser.ATOM))) !== 0)) {
+				while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << SimpleLISPParser.T__0) | (1 << SimpleLISPParser.T__1) | (1 << SimpleLISPParser.T__2) | (1 << SimpleLISPParser.T__3) | (1 << SimpleLISPParser.OPEN) | (1 << SimpleLISPParser.ATOM))) !== 0)) {
 					{
 					{
 					this.state = 15;
@@ -178,7 +178,7 @@ export class SimpleLISPParser extends Parser {
 					_la = this._input.LA(1);
 				}
 				this.state = 21;
-				this.match(SimpleLISPParser.T__5);
+				this.match(SimpleLISPParser.CLOSE);
 				}
 				break;
 			default:
@@ -266,6 +266,8 @@ export class ProgramContext extends ParserRuleContext {
 
 export class ExpressionContext extends ParserRuleContext {
 	public ATOM(): TerminalNode | undefined { return this.tryGetToken(SimpleLISPParser.ATOM, 0); }
+	public OPEN(): TerminalNode | undefined { return this.tryGetToken(SimpleLISPParser.OPEN, 0); }
+	public CLOSE(): TerminalNode | undefined { return this.tryGetToken(SimpleLISPParser.CLOSE, 0); }
 	public expression(): ExpressionContext[];
 	public expression(i: number): ExpressionContext;
 	public expression(i?: number): ExpressionContext | ExpressionContext[] {
