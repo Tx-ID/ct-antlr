@@ -12,11 +12,11 @@ import { SimpleLISPLexer } from './antlr/SimpleLISP/SimpleLISPLexer';
 import { TerminalNode } from 'antlr4ts/tree/TerminalNode';
 import { ErrorNode } from 'antlr4ts/tree/ErrorNode';
 
-class MyErrorListener implements ANTLRErrorListener {
+class MyErrorListener implements ANTLRErrorListener<any> {
     err?: string
 
     syntaxError(
-        recognizer: Recognizer,
+        recognizer: Recognizer<any, any>,
         offendingSymbol: any,
         line: number,
         charPositionInLine: number,
