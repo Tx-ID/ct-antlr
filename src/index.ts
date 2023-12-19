@@ -55,7 +55,7 @@ class Listener implements JakselLISPListener {
     }
 
     getResult(): string {
-        return this.result.join(" ");
+        return this.result.join(" ").replaceAll('( ', '(').replaceAll(' )', ')');
     }
 }
 
